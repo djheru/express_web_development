@@ -5,15 +5,27 @@ var express = require('express');
 //express instance
 var app = express();
 
+
+//set the view engine
+app.set('view engine', 'jade');
+//location of view files
+app.set('views', './views');
+
+//a route for the home page
+app.get('/', function(req,res){
+	res.render('index')
+});
+
+//a route for /say-hello
+app.get('/say-hello', function(req,res){
+	res.render('hello');
+});
+
+app.get('/test', function(req,res){
+	res.send('this is a test');
+});
+
 //Start the app
 http.createServer(app).listen(3000, function(){
 	console.log("Express app started");
-});
-
-//Route for the home page
-//You can define the route after creatting the server because the 
-//app object is passed to the Node http API by reference, so properties
-//can be accessed at any time
-app.get('/', function(req,res){
-	res.send('Hello World');
 });
