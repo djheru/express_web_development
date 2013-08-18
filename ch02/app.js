@@ -11,6 +11,9 @@ app.set('view engine', 'jade');
 //location of view files
 app.set('views', './views');
 
+//mark ./public as a static dir
+app.use(express.static('./public'));
+
 //a route for the home page
 app.get('/', function(req,res){
 	res.render('index')
