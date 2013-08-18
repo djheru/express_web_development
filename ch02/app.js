@@ -11,8 +11,16 @@ app.set('view engine', 'jade');
 //location of view files
 app.set('views', './views');
 
+
 //mark ./public as a static dir
 app.use(express.static('./public'));
+//responseTime middle
+app.use(express.responseTime());
+//explicitly use router middleware
+app.use(app.router);
+//Format nice error messages
+app.use(express.errorHandler());
+
 
 //a route for the home page
 app.get('/', function(req,res){
@@ -25,7 +33,7 @@ app.get('/say-hello', function(req,res){
 });
 
 app.get('/test', function(req,res){
-	res.send('this is a test');
+	fail();
 });
 
 //Start the app
