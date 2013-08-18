@@ -3,7 +3,7 @@ express_web_development
 
 Node/Express Training
 
-package.json - All possible fields: http://package.json.nodejitsu.com/
+package.json - All possible fields: [http://package.json.nodejitsu.com/] (http://package.json.nodejitsu.com/)
 
 ##Middleware included in express by default:
 * router The app's routing system
