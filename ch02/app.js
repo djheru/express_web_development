@@ -2,6 +2,9 @@
 var http = require('http');
 //Express
 var express = require('express');
+//INI Parser
+var iniparser = require('iniparser');
+var config = iniparser.parseSync('./config.ini');
 //express instance
 var app = express();
 
@@ -24,7 +27,7 @@ app.use(express.errorHandler());
 
 //a route for the home page
 app.get('/', function(req,res){
-	res.render('index')
+	res.render('index', {title: config.title, message: config.message})
 });
 
 //a route for /say-hello
@@ -37,6 +40,6 @@ app.get('/test', function(req,res){
 });
 
 //Start the app
-http.createServer(app).listen(3000, function(){
+http.createServer(app).listen(config.port, function(){
 	console.log("Express app started");
 });
