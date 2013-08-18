@@ -20,3 +20,20 @@ var mod3 = require('./modules_assign_function.js');
 console.log('Modules assignment to function');
 console.log(mod3('hippopotamus'));
 console.log(' ');
+
+var http = require('http');
+var express = require('express');
+var forbidder = require('./middleware_module.js');
+var app = express();
+
+//add the custom middleware
+app.use(forbidder('Monday'));
+
+app.get('/', function(req,res){
+	res.send('Hi');
+});
+
+//start the app
+http.createServer(app).listen(3000, function(){
+	console.log("Express app started");	
+});
