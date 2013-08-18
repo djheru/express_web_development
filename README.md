@@ -4,6 +4,7 @@ express_web_development
 Node/Express Training
 
 package.json - All possible fields: [http://package.json.nodejitsu.com/] (http://package.json.nodejitsu.com/)
+*To add a dependency to package.json automatically, pass --save/-S flag to like ```npm install <package> -S```*
 List of node modules: [https://github.com/joyent/node/wiki/Modules] (https://github.com/joyent/node/wiki/Modules)
 
 ##Middleware included in express by default:

@@ -1,12 +1,13 @@
 {
-	"name": "test-app",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node app"
-	},
-	"dependencies": {
-		"express": "3.2.6",
-		"jade": "*"
-	}
+  "name": "test-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.2.6",
+    "jade": "*",
+    "iniparser": "~1.0.5"
+  }
 }
