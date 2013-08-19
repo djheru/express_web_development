@@ -1,4 +1,4 @@
-express_web_development
+Express Web Development
 =======================
 
 Node/Express Training
