@@ -9,7 +9,7 @@ package.json - All possible fields: [http://package.json.nodejitsu.com/] (http:/
 
 List of node modules: [https://github.com/joyent/node/wiki/Modules] (https://github.com/joyent/node/wiki/Modules)
 
-##Express bootstrap:```$ express [options] [directory]```
+##Express bootstrap: ```$ express [options] [directory]```
 * -h, --help output usage information
 * -V, --version output the version number
 * -s, --sessions add session support
