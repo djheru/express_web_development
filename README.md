@@ -5,9 +5,27 @@ Node/Express Training
 
 package.json - All possible fields: [http://package.json.nodejitsu.com/] (http://package.json.nodejitsu.com/)
 
-*To add a dependency to package.json automatically, pass --save/-S flag to like ```npm install <package> -S```*
+*To add a dependency to package.json automatically, pass --save/-S flag to like ```$ npm install <package> -S```*
 
 List of node modules: [https://github.com/joyent/node/wiki/Modules] (https://github.com/joyent/node/wiki/Modules)
+
+##Application options:
+* env The environment the app is running on.
+* trust proxy Enables reverse proxy.
+* jsonp callback name Callback name for JSONP requests.
+* json replacer The JSON replacer callback.
+* json spaces The amount of space for indenting JSON responses.
+* case sensitive routing Makes route names case-sensitive.
+* strict routing Trailing slash at the end of a route name should be treated as separate from that without.
+* view cache Cache views. Enabled in production by default.
+* view engine The engine for processing view files.
+* views The directory of view files.
+
+###Setting the application environment:
+Express looks for a system environment variable called NODE_ENV at the process.env object, otherwise it's set to "development"
+```$ export NODE_ENV=production```
+To set NODE_ENV every time you log in: ```$ echo export NODE_ENV=production >> ~/.bash_profile
+To set NODE_ENV for a single run of the app (not persist): ```$ NODE_ENV=production node app```
 
 ##Middleware included in express by default:
 * router - The app's routing system

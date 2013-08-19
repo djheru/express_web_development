@@ -2,13 +2,18 @@
 var http = require('http');
 //Express
 var express = require('express');
-//INI Parser
-var iniparser = require('iniparser');
-var config = iniparser.parseSync('./config.ini');
-//filesystem module
-var fs = require('fs');
 //express instance
 var app = express();
+//INI Parser
+var iniparser = require('iniparser');
+var ini_config = iniparser.parseSync('./config.ini');
+//filesystem module
+var fs = require('fs');
+//Configuration
+var config = require('./config.json')[app.get('env')];
+console.log(config.db_host);
+console.log(config.db_user);
+console.log(config.db_pass);
 
 
 //set the view engine
@@ -38,6 +43,19 @@ app.get('/', function(req,res){
 	res.render('index', {title: config.title, message: config.message})
 });
 
+//test env
+if('production' == app.get('env')){
+	app.get('/env-test', function(req,res){
+		res.send('Hello from production');
+	});
+}
+
+if('development' == app.get('env')){
+	app.get('/env-test', function(req,res){
+		res.send('Sup, baby from development');
+	});
+}
+
 //a route for /say-hello
 app.get('/say-hello', function(req,res){
 	res.render('hello');
@@ -48,6 +66,6 @@ app.get('/test', function(req,res){
 });
 
 //Start the app
-http.createServer(app).listen(config.port, function(){
+http.createServer(app).listen(ini_config.port, function(){
 	console.log("Express app started");
 });
