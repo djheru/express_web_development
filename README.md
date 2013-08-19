@@ -9,6 +9,16 @@ package.json - All possible fields: [http://package.json.nodejitsu.com/] (http:/
 
 List of node modules: [https://github.com/joyent/node/wiki/Modules] (https://github.com/joyent/node/wiki/Modules)
 
+##Express bootstrap:```$ express [options] [directory]```
+* -h, --help output usage information
+* -V, --version output the version number
+* -s, --sessions add session support
+* -e, --ejs add ejs engine support (defaults to jade)
+* -J, --jshtml add jshtml engine support (defaults to jade)
+* -H, --hogan add hogan.js engine support
+* -c, --css <engine> add stylesheet <engine> support (less|stylus)
+* directory defaults to pwd
+
 ##Application options:
 * env The environment the app is running on.
 * trust proxy Enables reverse proxy.
