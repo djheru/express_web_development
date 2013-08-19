@@ -32,3 +32,17 @@ List of node modules: [https://github.com/joyent/node/wiki/Modules] (https://git
 * limit - Limit the size of request body
 * query - The GET query parser
 * errorHandler - Generate HTML-formatted stack trace of errors in the server
+
+##Formatting tokens for express.logger middleware:
+* :req[header] - The specific HTTP header of the request
+* :res[header] - The specific HTTP header of the response
+* :http-version - The HTTP version
+* :response-time - How long it took to generate the response
+* :remote-addr - The user agent's IP address
+* :date - Date and time of request
+* :method - The HTTP method used for making the request
+* :url - The requested URL
+* :referrer - The URL that referred the current URL
+* :user-agent - The user-agent signature
+* :status - The HTTP status
+* Can also use one of the following predefined formats: 'default', 'short', 'tiny', 'dev'
