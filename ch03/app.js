@@ -163,6 +163,21 @@ app.get('/xyz', function(req,res){//only this gets executed
 	res.send('xyz');
 });
 
+//Multiple callbacks on a route, is like coupling middleware in route
+app.get('/mc', 
+	function(req,res,next){
+		res.set('X-One', 'foo');
+		next();
+	},
+	function(req,res,next){
+		res.set('X-Two', 'bar');
+		next();
+	},
+	function(req,res){
+		res.send('BazFaz!');
+	}
+)
+
 
 
 http.createServer(app).listen(app.get('port'), function(){
