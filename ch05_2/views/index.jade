@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  h1= title
+  //p Welcome to #{title} - #{html_message} - escaped interpolation
+  p #{title} - !{html_message} //html is not escaped
+  
+  //expression interpolation (escaped)
+  p= html_message
+  
+  //express interpolation (unescaped)
+  p!= html_message
+  p!= 'Message: ' + html_message.toLowerCase()
+  
+  //control structures
+  //for loop
+  - for(var i in heroes){
+  div #{i}. #{heroes[i].name}
+  - }
+  
+  //alternate for loop
+  - for(var i in heroes)
+   div #{i}. #{heroes[i].name}
+   
+  //conditionals
+  - if(typeof(title) != 'undefined')
+   h1= title
+  - else
+   h1= 'title is missing'
