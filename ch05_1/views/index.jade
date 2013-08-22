@@ -1,0 +1,76 @@
+doctype 5
+html
+	
+	head
+		title #{title}
+		style(type='text/css').
+			#wrapper {
+				font: 14px Arial; 
+				width: 300px;
+				padding: 5px; 
+				border: 1px solid #ccc;
+				margin: 0 auto;
+			}
+			#content{
+				margin: 10px  0;
+			}
+			.highlighted{
+				background: #d0ff5e;
+			}
+	body
+		#wrapper
+		
+			h1 #{title}
+			#content
+				p Jade is intuitive, Jade is logical. Jade makes HTML easy. Jade saves time.
+				p.highlighted Here is some highlighted text
+				button#alert Click Me
+				
+			//block expansions
+			div: a(href='/about') About me
+			div: ul: li One
+			div.container: div.content Hello!
+			
+			//assigning ids
+			p#main-content Hi
+			span#target Hello
+			
+			//assigning classes
+			p.main-content Hi
+			span.target Hello
+			
+			//assigning attributes
+			p(id='main', class='highlight special')
+			img(src='/images/logo.png')#logo
+			
+			//set value of attribute using variables
+			- user_type = 'regular'
+			div(class=user_type) This is a regular user
+			
+			//blocks of text using bar notation
+			p
+				| One two
+				| buckle my shoe
+			
+			//mixing text and tags with bar notation
+			p
+				| Username: 
+				span.username DiamondDave
+				| I'm just a gigolo
+				
+			//using dot notation
+			p.
+				One two buckle my shoe
+				Three four shut the hell up.
+				
+			
+		footer 
+			span Copyright &copy; 2013 
+			a(href='/') Home
+			
+	//script tag at the end to query the DOM
+	script.
+		var greeting = 'Welcome to Jade';
+		document.querySelector('#alert').onclick = function(){
+			alert(greeting);
+		};
