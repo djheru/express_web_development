@@ -11,6 +11,9 @@ var path = require('path');
 
 var app = express();
 
+//Prettify HTML
+//app.locals.pretty = true;
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -24,18 +27,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+  //app.use(express.errorHandler());
 }
 
 //404 handler
 app.use(function(req,res){
 	res.status(400);
-	res.render('404.jade', {title: "Page not found", message: "Page couldn't be located" });
+	res.render('404', {title: "Page not found", message: "Page couldn't be located" });
 });
 //500 handler
 app.use(function(error, req, res, next){
 	res.status(500);
-	res.render('500.jade', {title: "Server Error", message: "Server crapped out" });
+	res.render('500', {title: "Server Error", message: "Server crapped out" });
 });
 
 //error route to test 500
@@ -43,8 +46,6 @@ app.get('/error', function(req,res){
 	error();
 });
 
-//Prettify HTML
-app.locals.pretty = true;
 
 app.get('/', routes.index);
 app.get('/users', user.list);
