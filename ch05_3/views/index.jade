@@ -1,5 +1,13 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+!!! 5
+html
+	head
+		title Examples of View Includes
+		include includes/style.css
+	body
+		include includes/header.jade
+		include includes/content.md
+		
+		p ... and here is something directly from the Jade view template.
+		
+		include includes/footer.html
+		include includes/script.js
