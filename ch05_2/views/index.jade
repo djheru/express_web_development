@@ -30,3 +30,31 @@ block content
 	- else
 		h1= 'title is missing'
    
+	//forEach
+	- heroes.forEach(function(hero, i){
+		div= hero.name
+	- })
+	
+	//while loop
+	pre
+	
+		n = 10
+		- while(n>0)
+			= n + '\n'
+			- n--
+	
+	//defining functions if you think it's a good idea
+	- function greet(name)
+		p Hi #{name}!
+		
+	- greet('Joe')
+	
+	
+	//JADE CONSTRUCTS
+	for hero in heroes
+		if hero.role == 'captain'
+			.msg Aye Captain!
+		else if hero.role == 'enforcer'
+			.msg Easy there, tough guy
+		else
+			.msg Gimme beers!
