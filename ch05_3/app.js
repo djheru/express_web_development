@@ -28,8 +28,12 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/includes', routes.include);
-app.get('/inherits', routes.inherit);
+app.get('/include', routes.include);
+app.get('/inherit', routes.inherit);
+app.get('/inherit-prepend', routes.inherit_prepend);
+app.get('/inherit-append', routes.inherit_append);
+app.get('/mixin', routes.mixin);
+app.get('/comment', routes.comment);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){

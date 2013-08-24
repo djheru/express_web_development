@@ -1,0 +1,24 @@
+extend layout
+
+mixin skills_list
+	ul
+		li Dancing
+		li Computer Hacking
+		li Nunchucks
+		
+mixin heroes_list(hero)
+	if hero.role == 'captain'
+		li Captain: #{hero.name}
+	else
+		li #{hero.name}
+
+block append content
+	h1 This is the mixin
+	mixin skills_list
+	
+	ul
+		each hero in heroes
+			+heroes_list(hero)
+		
+block append footer
+	#footer Copyright &copy; 2013
