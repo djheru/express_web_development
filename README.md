@@ -31,7 +31,7 @@ List of node modules: [https://github.com/joyent/node/wiki/Modules] (https://git
 * view engine The engine for processing view files.
 * views The directory of view files.
 
-###Setting the application environment:
+##Setting the application environment:
 Express looks for a system environment variable called NODE_ENV at the process.env object, otherwise it's set to "development"
 ```$ export NODE_ENV=production```
 To set NODE_ENV every time you log in: ```$ echo export NODE_ENV=production >> ~/.bash_profile
@@ -74,3 +74,17 @@ To set NODE_ENV for a single run of the app (not persist): ```$ NODE_ENV=product
 * :user-agent - The user-agent signature
 * :status - The HTTP status
 * Can also use one of the following predefined formats: 'default', 'short', 'tiny', 'dev'
+
+##Stylus Options
+* serve - Serves stylus files from the dest directory
+* force - Force recompilation of the Stylus files for every request
+* src - Path to the stylus files
+* dest - Path to output the compiled CSS files. Defaults to src
+* compile - Custom compile function
+* compress - Minifies the generated css
+* firebug - Generates debug info for the FireStylus Firebug plugin
+* linenos Shows commented Stylus line number
+
+
+
+
