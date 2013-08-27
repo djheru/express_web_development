@@ -23,7 +23,8 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(stylus.middleware({
 	src: path.join(__dirname, 'public'),
-	compress: true
+	compress: true, 
+	force: true
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
