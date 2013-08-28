@@ -1,2 +1,6 @@
 body{padding:50px;font:14px "Lucida Grande",Helvetica,Arial,sans-serif}
 a{color:#00b7ff}
+#container{width:600px;}
+#container div{padding:3px}
+#container .block{width:50%;}
+#container .block strong{color:#eee}
