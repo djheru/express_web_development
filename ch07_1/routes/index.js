@@ -29,17 +29,38 @@ exports.postSubmit = function(req, res) {
 		title : 'Post Submissions Handler'
 	});
 };
-exports.uploads = function(req,res){
+exports.upload = function(req,res){
 	res.render('upload', {
 		title: 'Upload a thing',
 		msg: ''
 	});
 }
-exports.uploadHdlr = functino(req,res){
-	console.log("Body: ", req.body);
-	console.log("Files: ", req.files)
-	res.render('upload', {
-		title: 'Upload a thing',
-		msg: 'thing uploaded'
-	})
+exports.uploadHdlr = function(req,res, next){
+	var fs = require('fs');
+	var name = req.body.name;
+	//refference to the profile image object
+	var profile_image = req.files.profile_image;
+	
+	//tmp location
+	var tmp_path = profile_image.path;
+	
+	//new location: 
+	var target_path = './public/images/' + profile_image.name;
+	
+	//move the file
+	fs.rename(tmp_path, target_path, function(err){
+		//if an error is encountered, pass it to the next
+		if(err){
+			next(err);
+		}
+		//delete the tmp file
+		fs.unlink(tmp_path, function(){
+			//if an error is encountered, pass it to nex
+			if(err){
+				next(err);
+			}
+			console.log('file uploaded to: ', target_path);
+			res.redirect('/images/' + profile_image.name);
+		});
+	});
 }

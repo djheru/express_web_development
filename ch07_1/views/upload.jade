@@ -5,7 +5,7 @@ block content
 	h4= msg
 	p Enter some info
   
-	form(action='/search-result', method='post', enctype='multipart/form-data')
+	form(action='/upload', method='post', enctype='multipart/form-data')
 		label Name
 		input(type='text', name='name')
 		input(type='hidden', name='source', value='web')
