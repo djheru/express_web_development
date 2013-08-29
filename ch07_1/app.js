@@ -34,9 +34,11 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/get', routes.get);
 app.get('/post', routes.post);
+app.get('/upload', routes.upload)
 
 app.get('/search-result', routes.getSubmit);
 app.post('/search-result', routes.postSubmit);
+app.post('/upload', routes.uploadHdlr);
 
 app.get('/users', user.list);
 

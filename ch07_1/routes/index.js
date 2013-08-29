@@ -29,3 +29,17 @@ exports.postSubmit = function(req, res) {
 		title : 'Post Submissions Handler'
 	});
 };
+exports.uploads = function(req,res){
+	res.render('upload', {
+		title: 'Upload a thing',
+		msg: ''
+	});
+}
+exports.uploadHdlr = functino(req,res){
+	console.log("Body: ", req.body);
+	console.log("Files: ", req.files)
+	res.render('upload', {
+		title: 'Upload a thing',
+		msg: 'thing uploaded'
+	})
+}

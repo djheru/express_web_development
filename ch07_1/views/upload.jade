@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	h1= title
+	h4= msg
+	p Enter some info
+  
+	form(action='/search-result', method='post', enctype='multipart/form-data')
+		label Name
+		input(type='text', name='name')
+		input(type='hidden', name='source', value='web')
+		input(type='file', name='profile_image')
+				
+		input(type='submit', value='search')
