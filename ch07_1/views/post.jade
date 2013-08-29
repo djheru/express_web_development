@@ -1,0 +1,25 @@
+extends layout
+
+block content
+	h1= title
+	p Enter some info
+  
+	form(action='/search-result', method='post')
+		label Name
+		input(type='text', name='name')
+		input(type='hidden', name='source', value='web')
+		ul
+			li
+				input(type='checkbox', name='skills', value='nunchucks')
+				label nunchucks
+			li
+				input(type='checkbox', name='skills', value='hacking')
+				label hacking
+			li
+				input(type='checkbox', name='skills', value='dancing')
+				label dancing
+			li
+				input(type='checkbox', name='skills', value='shooting')
+				label shooting
+				
+		input(type='submit', value='search')

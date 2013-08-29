@@ -19,6 +19,10 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
+app.use(express.bodyParser({
+	keepExtensions: true,
+	uploadDir: './public'
+}));//load before the router
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -29,8 +33,10 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/get', routes.get);
-app.get('/search-result', routes.getSubmit);
+app.get('/post', routes.post);
 
+app.get('/search-result', routes.getSubmit);
+app.post('/search-result', routes.postSubmit);
 
 app.get('/users', user.list);
 
