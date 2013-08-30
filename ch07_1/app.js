@@ -25,7 +25,8 @@ app.use(express.bodyParser({//load before the router
 	uploadDir: './public'
 }));
 app.use(express.methodOverride());//load after bodyparser, before router
-app.use(express.cookieParser());
+app.use(express.cookieParser('SECRET'));
+app.use(express.session())
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 

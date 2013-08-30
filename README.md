@@ -85,7 +85,7 @@ To set NODE_ENV for a single run of the app (not persist): ```$ NODE_ENV=product
 * firebug - Generates debug info for the FireStylus Firebug plugin
 * linenos Shows commented Stylus line number
 
-##res.cookie() Options
+##Cookie Middleware Options
 * domain - Domain name for the cookie. Defaults to loaded domain name
 * path - Path for the cookie. Defaults to "/"
 * secure - Marks the cookie as HTTPS only
@@ -94,6 +94,11 @@ To set NODE_ENV for a single run of the app (not persist): ```$ NODE_ENV=product
 * httpOnly - Helps avoid XSS by disallowing client-side access
 * signed - Signed cookie invalidated by tampering. To sign, pass a string to middleware when instantiating. Signed cookies are accessible through res.signedCookies not res.cookies
 
-
+##Session Middleware Options
+* key - Name of the cookie (defaults to connect.sid)
+* store - Instance of a session store (defaults to MemoryStore). The session store may support options of its own
+* secret - Secret for signing the cookie, required if not passed to cookieParser()
+* cookie - regular cookie settings
+* proxy - Whether or not to trustr the reverse proxy (default false)
 
 
