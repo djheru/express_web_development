@@ -10,6 +10,10 @@ var http = require('http');
 var path = require('path');
 var fs = require('fs');
 
+//for RedisStore sessions
+var RedisStore = require('connect-redis')(express);
+
+
 var app = express();
 
 // all environments
@@ -26,7 +30,8 @@ app.use(express.bodyParser({//load before the router
 }));
 app.use(express.methodOverride());//load after bodyparser, before router
 app.use(express.cookieParser('SECRET'));
-app.use(express.session())
+//app.use(express.session())
+app.use(express.session({ store: new RedisStore }));
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -67,7 +72,22 @@ app.get('/cookiecounter', function(req,res){
 
 app.get('/clearcookie', function(req,res){
 	res.clearCookie(count);
-})
+});
+
+app.get('/redis', function(req,res){
+	req.session.foo = 'bar';
+	res.send(req.session.foo);
+});
+
+app.get('/redis2', function(req,res){
+	res.send(req.session.foo);
+});
+
+app.get('/redisclear', function(req,res){
+	req.session.destroy(function(){
+		res.send('session destroyed');
+	});
+});
 
 app.get('/users', user.list);
 
