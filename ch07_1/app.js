@@ -20,10 +20,12 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.bodyParser({
+app.use(express.bodyParser({//load before the router
 	keepExtensions: true,
 	uploadDir: './public'
-}));//load before the router
+}));
+app.use(express.methodOverride());//load after bodyparser, before router
+app.use(express.cookieParser());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -35,11 +37,36 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/get', routes.get);
 app.get('/post', routes.post);
+app.get('/put', routes.put);
 app.get('/upload', routes.upload)
 
 app.get('/search-result', routes.getSubmit);
 app.post('/search-result', routes.postSubmit);
+app.put('/put', routes.putHdlr)
 app.post('/upload', routes.uploadHdlr);
+
+app.get('/file/:name.:ext', function(req,res){
+	var name = req.params.name;
+	var ext = req.params.ext;
+	console.log('File: ' + name + ' Ext: ' + ext);
+	res.send('File: ' + name + ' Ext: ' + ext);
+});
+
+app.get('/route/:from-:to', function(req,res){
+	console.log("FROM: " + req.params.from + " - TO: " + req.params.to);
+	res.send("FROM: " + req.params.from + " - TO: " + req.params.to);
+});
+
+app.get('/cookiecounter', function(req,res){
+	var count = req.cookies.count || 0;
+	count++;
+	res.cookie('count', count);
+	res.send('Count: ' + count);
+});
+
+app.get('/clearcookie', function(req,res){
+	res.clearCookie(count);
+})
 
 app.get('/users', user.list);
 

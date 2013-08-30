@@ -85,6 +85,15 @@ To set NODE_ENV for a single run of the app (not persist): ```$ NODE_ENV=product
 * firebug - Generates debug info for the FireStylus Firebug plugin
 * linenos Shows commented Stylus line number
 
+##res.cookie() Options
+* domain - Domain name for the cookie. Defaults to loaded domain name
+* path - Path for the cookie. Defaults to "/"
+* secure - Marks the cookie as HTTPS only
+* expires - Expiry date of the cookie in GMT. If not specified or set to 0, creates a session cookie (session cookies may not be deleted when browser remembers tabs)
+* maxAge - Convenient option for setting the expiry time relative to the current time (in milliseconds)
+* httpOnly - Helps avoid XSS by disallowing client-side access
+* signed - Signed cookie invalidated by tampering. To sign, pass a string to middleware when instantiating. Signed cookies are accessible through res.signedCookies not res.cookies
+
 
 
 

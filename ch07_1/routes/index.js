@@ -29,6 +29,16 @@ exports.postSubmit = function(req, res) {
 		title : 'Post Submissions Handler'
 	});
 };
+
+exports.putHdlr = function(req,res){
+	console.log(req.body);
+	res.render('put')
+}
+
+exports.put = function(req,res){//method override only works with POST
+	res.render('put')
+}
+
 exports.upload = function(req,res){
 	res.render('upload', {
 		title: 'Upload a thing',
