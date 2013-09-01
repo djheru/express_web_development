@@ -101,4 +101,23 @@ To set NODE_ENV for a single run of the app (not persist): ```$ NODE_ENV=product
 * cookie - regular cookie settings
 * proxy - Whether or not to trustr the reverse proxy (default false)
 
+##Benchmarking app with siege
+####siege -b -c100 -t10S http://localhost:3000/
+* -b - Indicates we're benchmarking, no delay between requests
+* -c - Number of concurrent connections
+* -t Duration of benchmarking test ([S] Seconds, [M] Minutes, [H] Hours)
+
+####Results
+* Transactions - The number of requests made.
+* Availability - The percentage of socket connections successfully handled by the server.
+* Elapsed Time - The duration of the entire siege test.
+* Data Transferred - The sum of data transferred to every siege- simulated user. It includes the header information as well as the content. Because it includes header information, the number reported by siege will be larger then the number reported by the server. In internet mode, which hits random URLs in a configuration file, this number is expected to vary from run to run.
+* Response Time - The average time taken to respond to each simulated user's requests.
+* Transaction Rate - The average number of transactions the server was able to handle per second.
+* Throughput  - The average number of bytes transferred every second from the server to all the simulated users.
+* Concurrency - The average number of simultaneous connections, a number that rises as server performance decreases.
+* Successful Transactions - The number of times the server returned a code less then 400.
+* Failed Transactions - The number of times the server responded with a return code more than or equal to 400 plus the sum of all failed socket transactions, which includes socket timeouts
+* Longest Transaction - The longest period of time that any single transaction took, out of all transactions.
+* Shortest Transaction - The least period of time that any single transaction took, out of all transactions.
 
