@@ -32,10 +32,10 @@ List of node modules: [https://github.com/joyent/node/wiki/Modules] (https://git
 * views The directory of view files.
 
 ##Setting the application environment:
-Express looks for a system environment variable called NODE_ENV at the process.env object, otherwise it's set to "development"
-```$ export NODE_ENV=production```
-To set NODE_ENV every time you log in: ```$ echo export NODE_ENV=production >> ~/.bash_profile
-To set NODE_ENV for a single run of the app (not persist): ```$ NODE_ENV=production node app```
+* Express looks for a system environment variable called NODE_ENV at the process.env object, otherwise it's set to "development"
+* ```$ export NODE_ENV=production```
+* To set NODE_ENV every time you log in: ```$ echo export NODE_ENV=production >> ~/.bash_profile
+* To set NODE_ENV for a single run of the app (not persist): ```$ NODE_ENV=production node app```
 
 ##Middleware included in express by default:
 * router - The app's routing system
