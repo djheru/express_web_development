@@ -102,7 +102,7 @@ To set NODE_ENV for a single run of the app (not persist): ```$ NODE_ENV=product
 * proxy - Whether or not to trustr the reverse proxy (default false)
 
 ##Benchmarking app with siege
-####siege -b -c100 -t10S http://localhost:3000/
+####```siege -b -c100 -t10S http://localhost:3000/```
 * -b - Indicates we're benchmarking, no delay between requests
 * -c - Number of concurrent connections
 * -t Duration of benchmarking test ([S] Seconds, [M] Minutes, [H] Hours)
