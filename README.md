@@ -141,8 +141,10 @@ List of node modules: [https://github.com/joyent/node/wiki/Modules] (https://git
 * ```start myapp``` - starts the ```myapp``` job 
 * ```restart myapp``` - Take a wild guess
 * ```stop myapp``` - You'll never figure this one out!
+
 ###Example Upstart Job
 *Upstart jobs are stored in /etc/init as .conf files*
+
 ```
 description "Daemonized Express App"
 author "Hack Sparrow"
