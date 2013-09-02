@@ -121,3 +121,40 @@ List of node modules: [https://github.com/joyent/node/wiki/Modules] (https://git
 * Longest Transaction - The longest period of time that any single transaction took, out of all transactions.
 * Shortest Transaction - The least period of time that any single transaction took, out of all transactions.
 
+##Daemonize with Forever
+* ```forever start app.js``` - Start app.js in the background and restart if it crashes
+* ```forever list``` - List all the processes started with forever
+* '''forever stop <process index>``` - Stop the specified process. Index can be gleaned from ```forever list```
+* ```forever restart <process index>``` - Restart the specified process
+####Forever options
+* -m  MAX - Only run the specified script MAX times
+* -l  LOGFILE - Logs the forever output to LOGFILE
+* -o  OUTFILE - Logs stdout from child script to OUTFILE
+* -e  ERRFILE - Logs stderr from child script to ERRFILE
+* --plain          alias of --no-colors
+* -d, --debug      Forces forever to log debug output
+* -v, --verbose    Turns on the verbose messages from Forever
+* -s, --silent     Run the child script silencing stdout and stderr
+* -w, --watch      Watch for file changes
+
+##Start App on Reboot with Upstart
+* ```start myapp``` - starts the ```myapp``` job 
+* ```restart myapp``` - Take a wild guess
+* ```stop myapp``` - You'll never figure this one out!
+###Example Upstart Job
+*Upstart jobs are stored in /etc/init as .conf files*
+```
+description "Daemonized Express App"
+author "Hack Sparrow"
+# When to start the process
+start on runlevel [2345]
+# When to stop the process
+stop on runlevel [016]
+# The process to start
+exec sudo -u www-data /usr/local/bin/node /var/www/example/app.js
+# Restart the process if it is down
+respawn
+# Limit restart attempt to 10 times within 10 seconds
+respawn limit 10 10
+
+```
