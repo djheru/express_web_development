@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	- if(user)
+		h1 Welcome Back
+		p  #{user.username}
+	- else
+		h1 Welcome Guest
+		a(href="/login") Log In

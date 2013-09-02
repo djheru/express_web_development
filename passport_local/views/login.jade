@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	strong= message
+	- if(user)
+		h1 Welcome Back
+		p  #{user.username}
+	- else
+		form(action="/login", method="post")
+			label Username: 
+			input(type="text", name="username")
+			br
+			label Password:
+			input(type="password", name="password")
+			br
+			input(type="submit")
