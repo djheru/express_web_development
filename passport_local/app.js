@@ -8,6 +8,7 @@ var passport = require('passport');
 var LocalStrategy =  require('passport-local').Strategy;
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
+var RedisStore = require('connect-redis')(express);
 var bcrypt = require('bcrypt');	
 var SALT_WORK_FACTOR = 10;
 
@@ -130,7 +131,12 @@ app.use(express.logger('dev'));
 app.use(express.cookieParser());
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.session({ secret: 'secret' }));
+app.use(express.session({ 
+	secret: 'secret',
+	maxAge: new Date(Date.now() + 3600000),
+	store: new RedisStore
+}));
+
 //initialize Passport. Also use passport.session() middleware to support persistent login sessions
 app.use(passport.initialize());
 app.use(passport.session());
