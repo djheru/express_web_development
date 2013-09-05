@@ -75,6 +75,17 @@ List of node modules: [https://github.com/joyent/node/wiki/Modules] (https://git
 * :status - The HTTP status
 * Can also use one of the following predefined formats: 'default', 'short', 'tiny', 'dev'
 
+##REST Routing with express-resource
+HTTP Verb | Path | Module Method | Description
+--- | --- | --- | ---
+GET | /users | index | List Users
+GET | /users/new | new | Show new user form
+POST | /users | create | Handle new user form submission
+GET | /users/:id | show | Show user with id ```:id```
+GET | /users/:id/edit | edit | Form to edit user ```:id```
+PUT | /users/:id | update | Handle edit user form submission
+DELETE | /users/:id | destroy | Delete user ```:id```
+
 ##Stylus Options
 * serve - Serves stylus files from the dest directory
 * force - Force recompilation of the Stylus files for every request
