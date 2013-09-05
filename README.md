@@ -135,8 +135,9 @@ DELETE | /users/:id | destroy | Delete user ```:id```
 ##Daemonize with Forever
 * ```forever start app.js``` - Start app.js in the background and restart if it crashes
 * ```forever list``` - List all the processes started with forever
-* '''forever stop <process index>``` - Stop the specified process. Index can be gleaned from ```forever list```
+* ```forever stop <process index>``` - Stop the specified process. Index can be gleaned from ```forever list```
 * ```forever restart <process index>``` - Restart the specified process
+
 ####Forever options
 * -m  MAX - Only run the specified script MAX times
 * -l  LOGFILE - Logs the forever output to LOGFILE
